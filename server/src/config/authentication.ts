@@ -8,7 +8,7 @@ const COOKIE_OPTIONS = {
 
 export default {
 	saltRounds: process.env.SALT_ROUNDS || 10,
-	jwtSecret: process.env.AUTH_JWT_SECRET || 'fuck you',
+	jwtSecret: process.env.AUTH_JWT_SECRET || 'test',
 	cookie: {
 		name: 'inventory_access_token',
 		options: process.env.AUTH_SECURE_COOKIE
