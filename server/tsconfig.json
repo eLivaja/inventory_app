@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+
+		/* Modules */
+		"module": "CommonJS",
+		"moduleResolution": "Node",
+		// "outFile": "./",
+		// "rootDir": "",
+		"outDir": "./dist",
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"alwaysStrict": true,
+		"allowJs": true,
+		"forceConsistentCasingInFileNames": true,
+		"declaration": true,
+
+		/* Type Checking */
+		"strict": true,
+		"noImplicitAny": false,
+		"strictPropertyInitialization": false,
+		"skipLibCheck": true
+	}
+}
