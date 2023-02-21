@@ -16,13 +16,13 @@ class Migration20230210104448 extends migrations_1.Migration {
     up() {
         return __awaiter(this, void 0, void 0, function* () {
             const knex = this.getKnex();
-            const user = knex.schema.createTable(TABLE_NAME, table => {
+            const officeEquipment = knex.schema.createTable(TABLE_NAME, table => {
                 table.increments();
                 table.string('description').nullable();
                 table.integer('item_id').notNullable().references('item.id');
                 table.timestamps();
             });
-            this.addSql(user.toQuery());
+            this.addSql(officeEquipment.toQuery());
         });
     }
     down() {

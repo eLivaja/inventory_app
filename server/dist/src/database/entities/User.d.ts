@@ -11,5 +11,6 @@ declare class User extends BaseEntity {
     logs: Collection<AuditLog, object>;
     constructor(firstName: string, lastName: string, email: string, password?: string);
     checkIfUnencryptedPasswordIsValid(unencryptedPassword: string): boolean;
+    get fullName(): string;
 }
 export default User;

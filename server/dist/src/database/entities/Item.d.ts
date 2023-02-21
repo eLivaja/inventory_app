@@ -24,6 +24,7 @@ export declare class Item extends BaseEntity {
     office_equipment?: OfficeEquipment;
     tehnical_equipment?: TehnicalEquipment;
     logs: Collection<AuditLog, object>;
-    constructor(name: string, status: string, purchase_date: Date, category: Category, description?: string, user?: User, food?: Food, office_equipment?: OfficeEquipment, tehnical_equipment?: TehnicalEquipment);
+    constructor(name: string, status: string, purchase_date: Date, category: Category, description?: string, user?: User, office?: Office, food?: Food, office_equipment?: OfficeEquipment, tehnical_equipment?: TehnicalEquipment);
+    get assignedTo(): string | null;
 }
 export default Item;

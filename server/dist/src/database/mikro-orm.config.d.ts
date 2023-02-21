@@ -1,5 +1,5 @@
 declare const _default: {
-    entities: (typeof import("./entities/BaseEntity").default | typeof import("./entities/Food").Food | typeof import("./entities/Item").Item | typeof import("./entities/OfficeEquipment").OfficeEquipment | typeof import("./entities/TechnicalEquipment").TehnicalEquipment | typeof import("./entities/User").default | typeof import("./entities/AuditLog").AuditLog | typeof import("./entities/DaysOff").DaysOff | typeof import("./entities/Overtime").Overtime)[];
+    entities: (typeof import("./entities/BaseEntity").default | typeof import("./entities/Food").Food | typeof import("./entities/Item").Item | typeof import("./entities/Office").default | typeof import("./entities/OfficeEquipment").OfficeEquipment | typeof import("./entities/TechnicalEquipment").TehnicalEquipment | typeof import("./entities/User").default | typeof import("./entities/AuditLog").AuditLog | typeof import("./entities/DaysOff").DaysOff | typeof import("./entities/Overtime").Overtime)[];
     host: string;
     port: number;
     dbName: string;

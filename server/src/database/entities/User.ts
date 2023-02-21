@@ -48,6 +48,11 @@ class User extends BaseEntity {
 	checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
 		return bcrypt.compareSync(unencryptedPassword, this.password);
 	}
+  
+  @Property({ persist: false })
+  get fullName(): string {
+    return [this.firstName, this.lastName].filter(Boolean).join(' ');
+  }
 }
 
 export default User;

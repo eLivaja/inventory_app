@@ -1,10 +1,12 @@
 import { Category } from '../../entities/Item';
 import { Food } from './../../entities/Food';
-import { OfficeEquipment } from './../../entities/OfficeEquipment';
 type TehnicalEquipment = {
     description: string;
     brand: string;
     left_handed: boolean;
+};
+type OfficeEquipment = {
+    description: string;
 };
 interface Item {
     name: string;
@@ -13,6 +15,7 @@ interface Item {
     purchaseDate: string;
     category: Category;
     user?: number;
+    office?: number | undefined;
     food?: Food;
     officeEquipment?: OfficeEquipment;
     tehnicalEquipment?: TehnicalEquipment;

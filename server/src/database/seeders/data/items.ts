@@ -55,8 +55,7 @@ export default [
     description: 'small scissors',
 		purchaseDate: '01.08.2017',
 		category: 'office_equipment',
-		user: 3,
-		office_equipment: {
+		officeEquipment: {
 			description: 'Small Scissors',
 		},
 	},
@@ -66,7 +65,6 @@ export default [
 		description: 'Black Chocholate',
 		purchaseDate: '01.02.2023',
 		category: 'food',
-		user: 3,
 		food: {
 			vegan: false,
 			vegetarian: false,
@@ -81,7 +79,6 @@ export default [
 		description: 'Green Smith small apples',
 		purchaseDate: '05.02.2023',
 		category: 'food',
-		user: 4,
 		food: {
 			vegan: true,
 			vegetarian: true,
@@ -96,8 +93,8 @@ export default [
 		description: 'White A4',
 		purchaseDate: '01.12.2022',
     category: 'office_equipment',
-		user: 4,
-		office_equipment: {
+		office: 1,
+		officeEquipment: {
 			description: 'no need for extra description?',
 		},
 	},

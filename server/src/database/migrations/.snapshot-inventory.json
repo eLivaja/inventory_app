@@ -204,15 +204,6 @@
           "nullable": false,
           "mappedType": "integer"
         },
-        "project": {
-          "name": "project",
-          "type": "varchar(255)",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "string"
-        },
         "user_id": {
           "name": "user_id",
           "type": "int",
@@ -336,7 +327,7 @@
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": false,
+          "nullable": true,
           "mappedType": "integer"
         },
         "office_id": {
@@ -345,7 +336,7 @@
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": false,
+          "nullable": true,
           "mappedType": "integer"
         }
       },
@@ -374,6 +365,7 @@
             "id"
           ],
           "referencedTableName": "public.user",
+          "deleteRule": "set null",
           "updateRule": "cascade"
         },
         "item_office_id_foreign": {
@@ -386,6 +378,7 @@
             "id"
           ],
           "referencedTableName": "public.office",
+          "deleteRule": "set null",
           "updateRule": "cascade"
         }
       }

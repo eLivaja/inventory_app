@@ -12,11 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatabaseSeeder = void 0;
 const seeder_1 = require("@mikro-orm/seeder");
 const ItemSeeder_1 = require("./ItemSeeder");
+const OfficeSeeder_1 = require("./OfficeSeeder");
 const UserSeeder_1 = require("./UserSeeder");
 class DatabaseSeeder extends seeder_1.Seeder {
     run(em) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.call(em, [UserSeeder_1.UserSeeder, ItemSeeder_1.ItemSeeder]);
+            return this.call(em, [UserSeeder_1.UserSeeder, OfficeSeeder_1.OfficeSeeder, ItemSeeder_1.ItemSeeder]);
         });
     }
 }

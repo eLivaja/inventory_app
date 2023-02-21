@@ -16,7 +16,7 @@ class Migration20230210101544 extends migrations_1.Migration {
     up() {
         return __awaiter(this, void 0, void 0, function* () {
             const knex = this.getKnex();
-            const user = knex.schema.createTable(TABLE_NAME, table => {
+            const food = knex.schema.createTable(TABLE_NAME, table => {
                 table.increments();
                 table.string('brand').notNullable();
                 table.string('expire_date').notNullable();
@@ -26,7 +26,7 @@ class Migration20230210101544 extends migrations_1.Migration {
                 table.integer('item_id').notNullable().references('item.id');
                 table.timestamps();
             });
-            this.addSql(user.toQuery());
+            this.addSql(food.toQuery());
         });
     }
     down() {

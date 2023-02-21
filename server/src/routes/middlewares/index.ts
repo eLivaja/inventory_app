@@ -8,7 +8,7 @@ import helmetMiddlewares from './helmet.js';
 export default {
 	pre: [
 		cors(),
-		express.urlencoded(),
+    express.urlencoded({ extended: true }),
 		express.json(),
 		cookieParser(),
 		...helmetMiddlewares,

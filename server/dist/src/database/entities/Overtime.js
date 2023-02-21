@@ -17,11 +17,10 @@ const core_1 = require("@mikro-orm/core");
 const BaseEntity_1 = __importDefault(require("./BaseEntity"));
 const User_1 = __importDefault(require("./User"));
 let Overtime = class Overtime extends BaseEntity_1.default {
-    constructor(date, number_of_hours, project, user) {
+    constructor(date, number_of_hours, user) {
         super();
         this.date = date;
         this.number_of_hours = number_of_hours;
-        this.project = project;
         this.user = user;
     }
 };
@@ -34,16 +33,12 @@ __decorate([
     __metadata("design:type", Number)
 ], Overtime.prototype, "number_of_hours", void 0);
 __decorate([
-    (0, core_1.Property)(),
-    __metadata("design:type", String)
-], Overtime.prototype, "project", void 0);
-__decorate([
     (0, core_1.ManyToOne)({ entity: () => User_1.default }),
     __metadata("design:type", User_1.default)
 ], Overtime.prototype, "user", void 0);
 Overtime = __decorate([
     (0, core_1.Entity)(),
-    __metadata("design:paramtypes", [Date, Number, String, User_1.default])
+    __metadata("design:paramtypes", [Date, Number, User_1.default])
 ], Overtime);
 exports.Overtime = Overtime;
 exports.default = Overtime;

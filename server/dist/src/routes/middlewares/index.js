@@ -11,7 +11,7 @@ const helmet_js_1 = __importDefault(require("./helmet.js"));
 exports.default = {
     pre: [
         (0, cors_1.default)(),
-        express_1.default.urlencoded(),
+        express_1.default.urlencoded({ extended: true }),
         express_1.default.json(),
         (0, cookie_parser_1.default)(),
         ...helmet_js_1.default,

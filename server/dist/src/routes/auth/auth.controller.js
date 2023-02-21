@@ -51,19 +51,11 @@ function login(req, res) {
             throw new httpError_1.default(BAD_REQUEST, 'email required');
         if (!password)
             throw new httpError_1.default(BAD_REQUEST, 'password required');
-        const user = yield index_1.db.instance.em
-            .getRepository(User_1.default)
-            .findOneOrFail({ email });
-        console.log(authentication_1.default);
-        console.log(authentication_1.default);
-        console.log(authentication_1.default);
+        const user = yield index_1.db.instance.em.getRepository(User_1.default).findOneOrFail({ email });
         if (!user.checkIfUnencryptedPasswordIsValid(password)) {
             throw new httpError_1.default(UNAUTHORIZED, 'Can not be found.');
         }
-        const jwtToken = jwt.sign({ id: user.id, email: user.email }, jwtSecret, {
-            expiresIn: '1h',
-        });
-        console.log(jwt);
+        const jwtToken = jwt.sign({ id: user.id, email: user.email }, jwtSecret, { expiresIn: '1h' });
         return res
             .cookie(cookieConfig.name, jwtToken, cookieConfig.options)
             .json({ success: true });

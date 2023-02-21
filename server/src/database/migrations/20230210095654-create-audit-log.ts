@@ -5,7 +5,7 @@ const TABLE_NAME = 'audit_log';
 export class Migration20230210095654 extends Migration {
 	async up(): Promise<void> {
 		const knex = this.getKnex();
-		const user = knex.schema.createTable(TABLE_NAME, table => {
+		const auditLog = knex.schema.createTable(TABLE_NAME, table => {
 			table.increments();
 			table.string('description').nullable();
 			table.json('before').defaultTo('{}');
@@ -16,7 +16,7 @@ export class Migration20230210095654 extends Migration {
 			table.foreign('item_id').references('item.id');
 			table.timestamps();
 		});
-		this.addSql(user.toQuery());
+		this.addSql(auditLog.toQuery());
 	}
 
 	async down(): Promise<void> {

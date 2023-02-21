@@ -6,7 +6,7 @@ export class Migration20230210092746 extends Migration {
 	async up(): Promise<void> {
 		const knex = this.getKnex();
 		const CATEGORIES = ['food', 'office_equipment', 'tehnical_equipment'];
-		const user = knex.schema.createTable(TABLE_NAME, table => {
+		const item = knex.schema.createTable(TABLE_NAME, table => {
 			table.increments();
 			table.string('name').notNullable();
 			table.string('status').notNullable().defaultTo('Available');
@@ -17,7 +17,7 @@ export class Migration20230210092746 extends Migration {
 			table.foreign('user_id').references('user.id');
 			table.timestamps();
 		});
-		this.addSql(user.toQuery());
+		this.addSql(item.toQuery());
 	}
 
 	async down(): Promise<void> {

@@ -84,6 +84,13 @@ export class Item extends BaseEntity {
 		if (office_equipment) this.office_equipment = office_equipment;
 		if (tehnical_equipment) this.tehnical_equipment = tehnical_equipment;
 	}
+
+  @Property({ persist: false })
+  get assignedTo(): string | null {
+    if (this.user) return this.user.fullName;
+    if (this.office) return this.office.name;
+    return null
+  }
 }
 
 export default Item;

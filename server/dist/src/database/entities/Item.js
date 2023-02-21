@@ -27,7 +27,7 @@ const category = {
     TEHNICAL_EQUIPMENT: 'tehnical_equipment',
 };
 let Item = class Item extends BaseEntity_1.default {
-    constructor(name, status, purchase_date, category, description, user, food, office_equipment, tehnical_equipment) {
+    constructor(name, status, purchase_date, category, description, user, office, food, office_equipment, tehnical_equipment) {
         super();
         this.logs = new core_1.Collection(this);
         this.name = name;
@@ -38,12 +38,21 @@ let Item = class Item extends BaseEntity_1.default {
             this.description = description;
         if (user)
             this.user = user;
+        if (office)
+            this.office = office;
         if (food)
             this.food = food;
         if (office_equipment)
             this.office_equipment = office_equipment;
         if (tehnical_equipment)
             this.tehnical_equipment = tehnical_equipment;
+    }
+    get assignedTo() {
+        if (this.user)
+            return this.user.fullName;
+        if (this.office)
+            return this.office.name;
+        return null;
     }
 };
 __decorate([
@@ -67,11 +76,11 @@ __decorate([
     __metadata("design:type", String)
 ], Item.prototype, "category", void 0);
 __decorate([
-    (0, core_1.ManyToOne)({ entity: () => User_1.default }),
+    (0, core_1.ManyToOne)({ entity: () => User_1.default, nullable: true }),
     __metadata("design:type", User_1.default)
 ], Item.prototype, "user", void 0);
 __decorate([
-    (0, core_1.ManyToOne)({ entity: () => Office_1.default }),
+    (0, core_1.ManyToOne)({ entity: () => Office_1.default, nullable: true }),
     __metadata("design:type", Office_1.default)
 ], Item.prototype, "office", void 0);
 __decorate([
@@ -90,9 +99,15 @@ __decorate([
     (0, core_1.OneToMany)(() => AuditLog_1.default, log => log.item, { cascade: [core_1.Cascade.ALL] }),
     __metadata("design:type", Object)
 ], Item.prototype, "logs", void 0);
+__decorate([
+    (0, core_1.Property)({ persist: false }),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [])
+], Item.prototype, "assignedTo", null);
 Item = __decorate([
     (0, core_1.Entity)(),
     __metadata("design:paramtypes", [String, String, Date, String, String, User_1.default,
+        Office_1.default,
         Food_1.default,
         OfficeEquipment_1.default,
         TechnicalEquipment_1.default])

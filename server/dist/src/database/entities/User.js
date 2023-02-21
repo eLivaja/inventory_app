@@ -54,6 +54,9 @@ let User = class User extends BaseEntity_1.default {
     checkIfUnencryptedPasswordIsValid(unencryptedPassword) {
         return bcrypt.compareSync(unencryptedPassword, this.password);
     }
+    get fullName() {
+        return [this.firstName, this.lastName].filter(Boolean).join(' ');
+    }
 };
 __decorate([
     (0, core_1.Property)(),
@@ -80,6 +83,11 @@ __decorate([
     (0, core_1.OneToMany)(() => AuditLog_1.default, log => log.user, { cascade: [core_1.Cascade.ALL] }),
     __metadata("design:type", Object)
 ], User.prototype, "logs", void 0);
+__decorate([
+    (0, core_1.Property)({ persist: false }),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [])
+], User.prototype, "fullName", null);
 User = __decorate([
     (0, core_1.Entity)(),
     __metadata("design:paramtypes", [String, String, String, String])

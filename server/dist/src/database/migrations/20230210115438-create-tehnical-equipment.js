@@ -16,7 +16,7 @@ class Migration20230210115438 extends migrations_1.Migration {
     up() {
         return __awaiter(this, void 0, void 0, function* () {
             const knex = this.getKnex();
-            const user = knex.schema.createTable(TABLE_NAME, table => {
+            const tehnicalEquipment = knex.schema.createTable(TABLE_NAME, table => {
                 table.increments();
                 table.string('brand').notNullable();
                 table.string('description').nullable();
@@ -24,7 +24,7 @@ class Migration20230210115438 extends migrations_1.Migration {
                 table.integer('item_id').notNullable().references('item.id');
                 table.timestamps();
             });
-            this.addSql(user.toQuery());
+            this.addSql(tehnicalEquipment.toQuery());
         });
     }
     down() {

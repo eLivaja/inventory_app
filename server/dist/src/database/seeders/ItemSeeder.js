@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ItemSeeder = void 0;
 const seeder_1 = require("@mikro-orm/seeder");
 const Item_1 = __importDefault(require("../entities/Item"));
+const Office_1 = __importDefault(require("../entities/Office"));
 const User_1 = __importDefault(require("../entities/User"));
 const Food_1 = require("./../entities/Food");
 const OfficeEquipment_1 = require("./../entities/OfficeEquipment");
@@ -24,9 +25,11 @@ class ItemSeeder extends seeder_1.Seeder {
     run(em) {
         return __awaiter(this, void 0, void 0, function* () {
             const users = yield em.getRepository(User_1.default).findAll();
+            const offices = yield em.getRepository(Office_1.default).findAll();
             items_1.default.map((item) => __awaiter(this, void 0, void 0, function* () {
                 const user = users.find(it => it.id === item.user);
-                const record = new Item_1.default(item.name, item.status, new Date(item.purchaseDate), item.category, item.description, user);
+                const office = offices.find(it => it.id === item.office);
+                const record = new Item_1.default(item.name, item.status, new Date(item.purchaseDate), item.category, item.description, user, office);
                 if (item.tehnicalEquipment) {
                     const equipment = item.tehnicalEquipment;
                     const technicalEquipment = new TechnicalEquipment_1.TehnicalEquipment(equipment.description, equipment.brand, equipment.left_handed, record);
