@@ -1,4 +1,3 @@
-import AuditLog from './AuditLog';
 import {
 	Cascade,
 	Collection,
@@ -7,9 +6,11 @@ import {
 	Property,
 	Unique,
 } from '@mikro-orm/core';
+import * as bcrypt from 'bcryptjs';
+
+import AuditLog from './AuditLog';
 import BaseEntity from './BaseEntity';
 import Item from './Item';
-import * as bcrypt from 'bcryptjs';
 
 @Entity()
 class User extends BaseEntity {
@@ -48,11 +49,11 @@ class User extends BaseEntity {
 	checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
 		return bcrypt.compareSync(unencryptedPassword, this.password);
 	}
-  
-  @Property({ persist: false })
-  get fullName(): string {
-    return [this.firstName, this.lastName].filter(Boolean).join(' ');
-  }
+
+	@Property({ persist: false })
+	get fullName(): string {
+		return [this.firstName, this.lastName].filter(Boolean).join(' ');
+	}
 }
 
 export default User;

@@ -1,1 +1,73 @@
-{"data":{"propertyOrder":{},"properties":{"description":{"name":"description","reference":"scalar","getter":false,"setter":false,"type":"string","array":false},"item":{"name":"item","reference":"1:1","cascade":["persist"],"type":"Item","owner":true,"unique":true,"array":false}},"props":[{"name":"description","reference":"scalar","getter":false,"setter":false,"type":"string","array":false},{"name":"item","reference":"1:1","cascade":["persist"],"type":"Item","owner":true,"unique":true,"array":false}],"primaryKeys":[],"filters":{},"hooks":{},"indexes":[],"uniques":[],"checks":[],"concurrencyCheckKeys":{},"className":"OfficeEquipment","path":"./dist/src/database/entities/OfficeEquipment.js","name":"OfficeEquipment","abstract":false,"constructorParams":["description","item"],"toJsonParams":[],"extends":"BaseEntity","useCache":true,"relations":[{"name":"item","reference":"1:1","cascade":["persist"],"type":"Item","owner":true,"unique":true,"array":false}],"collection":"office_equipment"},"origin":"./dist/src/database/entities/OfficeEquipment.js","hash":"211d0a6c4e3256276dcbc48095bccc09","version":"5.6.8"}
+{
+	"data": {
+		"propertyOrder": {},
+		"properties": {
+			"description": {
+				"name": "description",
+				"reference": "scalar",
+				"getter": false,
+				"setter": false,
+				"type": "string",
+				"array": false
+			},
+			"item": {
+				"name": "item",
+				"reference": "1:1",
+				"cascade": ["persist"],
+				"type": "Item",
+				"owner": true,
+				"unique": true,
+				"array": false
+			}
+		},
+		"props": [
+			{
+				"name": "description",
+				"reference": "scalar",
+				"getter": false,
+				"setter": false,
+				"type": "string",
+				"array": false
+			},
+			{
+				"name": "item",
+				"reference": "1:1",
+				"cascade": ["persist"],
+				"type": "Item",
+				"owner": true,
+				"unique": true,
+				"array": false
+			}
+		],
+		"primaryKeys": [],
+		"filters": {},
+		"hooks": {},
+		"indexes": [],
+		"uniques": [],
+		"checks": [],
+		"concurrencyCheckKeys": {},
+		"className": "OfficeEquipment",
+		"path": "./dist/src/database/entities/OfficeEquipment.js",
+		"name": "OfficeEquipment",
+		"abstract": false,
+		"constructorParams": ["description", "item"],
+		"toJsonParams": [],
+		"extends": "BaseEntity",
+		"useCache": true,
+		"relations": [
+			{
+				"name": "item",
+				"reference": "1:1",
+				"cascade": ["persist"],
+				"type": "Item",
+				"owner": true,
+				"unique": true,
+				"array": false
+			}
+		],
+		"collection": "office_equipment"
+	},
+	"origin": "./dist/src/database/entities/OfficeEquipment.js",
+	"hash": "211d0a6c4e3256276dcbc48095bccc09",
+	"version": "5.6.8"
+}

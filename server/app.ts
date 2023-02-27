@@ -1,4 +1,5 @@
 import express from 'express';
+
 import { init as databaseInit } from './src/database';
 import routes from './src/routes';
 

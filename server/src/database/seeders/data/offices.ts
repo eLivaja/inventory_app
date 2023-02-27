@@ -1,6 +1,6 @@
 export default [
 	{
-		name: 'Common Space'
+		name: 'Common Space',
 	},
 	{
 		name: 'Conference Room 1',
@@ -11,7 +11,7 @@ export default [
 	{
 		name: 'Office 1',
 	},
-  {
+	{
 		name: 'Office 2',
 	},
 ];

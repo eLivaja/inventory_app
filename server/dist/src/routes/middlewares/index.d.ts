@@ -1,4 +1,4 @@
 declare const _default: {
-    pre: any[];
+	pre: any[];
 };
 export default _default;

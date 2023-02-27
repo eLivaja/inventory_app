@@ -16,13 +16,17 @@ async function login(req: Request, res: Response) {
 	if (!email) throw new HttpError(BAD_REQUEST, 'email required');
 	if (!password) throw new HttpError(BAD_REQUEST, 'password required');
 
-	const user: User = await db.instance.em.getRepository(User).findOneOrFail({ email });
+	const user: User = await db.instance.em
+		.getRepository(User)
+		.findOneOrFail({ email });
 
 	if (!user.checkIfUnencryptedPasswordIsValid(password)) {
 		throw new HttpError(UNAUTHORIZED, 'Can not be found.');
 	}
 
-	const jwtToken = jwt.sign({ id: user.id, email: user.email }, jwtSecret, {expiresIn: '1h'});
+	const jwtToken = jwt.sign({ id: user.id, email: user.email }, jwtSecret, {
+		expiresIn: '1h',
+	});
 
 	return res
 		.cookie(cookieConfig.name, jwtToken, cookieConfig.options)

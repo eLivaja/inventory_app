@@ -7,5 +7,6 @@
 	"trailingComma": "es5",
 	"importOrder": ["^components/(.*)$", "^[./]"],
 	"importOrderSeparation": true,
-	"importOrderSortSpecifiers": true
+	"importOrderSortSpecifiers": true,
+	"importOrderParserPlugins": ["typescript", "decorators-legacy"]
 }

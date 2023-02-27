@@ -18,7 +18,7 @@ interface Item {
 	purchaseDate: string;
 	category: Category;
 	user?: number;
-  office?: number | undefined;
+	office?: number | undefined;
 	food?: Food;
 	officeEquipment?: OfficeEquipment;
 	tehnicalEquipment?: TehnicalEquipment;
@@ -52,7 +52,7 @@ export default [
 	{
 		name: 'Scissors',
 		status: 'available',
-    description: 'small scissors',
+		description: 'small scissors',
 		purchaseDate: '01.08.2017',
 		category: 'office_equipment',
 		officeEquipment: {
@@ -92,7 +92,7 @@ export default [
 		status: 'available',
 		description: 'White A4',
 		purchaseDate: '01.12.2022',
-    category: 'office_equipment',
+		category: 'office_equipment',
 		office: 1,
 		officeEquipment: {
 			description: 'no need for extra description?',

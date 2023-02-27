@@ -8,5 +8,17 @@ import OfficeEquipment from './OfficeEquipment';
 import Overtime from './Overtime';
 import TechnicalEquipment from './TechnicalEquipment';
 import User from './User';
-declare const _default: (typeof BaseEntity | typeof Food | typeof Item | typeof Office | typeof OfficeEquipment | typeof TechnicalEquipment | typeof User | typeof AuditLog | typeof DaysOff | typeof Overtime)[];
+
+declare const _default: (
+	| typeof BaseEntity
+	| typeof Food
+	| typeof Item
+	| typeof Office
+	| typeof OfficeEquipment
+	| typeof TechnicalEquipment
+	| typeof User
+	| typeof AuditLog
+	| typeof DaysOff
+	| typeof Overtime
+)[];
 export default _default;
