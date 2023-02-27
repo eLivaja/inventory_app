@@ -2,9 +2,9 @@
 	"name": "server",
 	"version": "1.0.0",
 	"description": "",
-	"main": "../server/dist/app.js",
+	"main": "dist/app.js",
 	"scripts": {
-		"start": "tsc && node -r dotenv/config ../server/dist/app.js",
+		"start": "tsc && node -r dotenv/config dist/app.js",
 		"lint": "eslint --ignore-path .eslintignore --ext .js .",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
 		"db:migration:create": "mikro-orm migration:create --blank",
