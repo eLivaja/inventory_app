@@ -1,6 +1,7 @@
-import Item from './Item';
 import { Entity, OneToOne, Property } from '@mikro-orm/core';
+
 import BaseEntity from './BaseEntity';
+import Item from './Item';
 
 @Entity()
 export class TehnicalEquipment extends BaseEntity {
@@ -16,12 +17,17 @@ export class TehnicalEquipment extends BaseEntity {
 	@OneToOne({ entity: () => Item })
 	item: Item;
 
-	constructor(description: string, brand: string, left_handed: boolean, item: Item) {
+	constructor(
+		description: string,
+		brand: string,
+		left_handed: boolean,
+		item: Item
+	) {
 		super();
 		this.description = description;
 		this.brand = brand;
 		this.left_handed = left_handed;
-    this.item = item
+		this.item = item;
 	}
 }
 

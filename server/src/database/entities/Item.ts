@@ -1,13 +1,14 @@
 import {
+	Cascade,
 	Collection,
 	Entity,
-	Cascade,
 	Enum,
-	Property,
 	ManyToOne,
 	OneToMany,
 	OneToOne,
+	Property,
 } from '@mikro-orm/core';
+
 import AuditLog from './AuditLog';
 import BaseEntity from './BaseEntity';
 import Food from './Food';
@@ -41,10 +42,10 @@ export class Item extends BaseEntity {
 	@Enum()
 	category: Category;
 
-	@ManyToOne({ entity: () => User, nullable: true})
+	@ManyToOne({ entity: () => User, nullable: true })
 	user?: User;
 
-  @ManyToOne({ entity: () => Office, nullable: true })
+	@ManyToOne({ entity: () => Office, nullable: true })
 	office?: Office;
 
 	@OneToOne(() => Food, food => food.item)
@@ -53,7 +54,10 @@ export class Item extends BaseEntity {
 	@OneToOne(() => OfficeEquipment, office_equipment => office_equipment.item)
 	office_equipment?: OfficeEquipment;
 
-	@OneToOne(() => TehnicalEquipment, tehnical_equipment => tehnical_equipment.item)
+	@OneToOne(
+		() => TehnicalEquipment,
+		tehnical_equipment => tehnical_equipment.item
+	)
 	tehnical_equipment?: TehnicalEquipment;
 
 	@OneToMany(() => AuditLog, log => log.item, { cascade: [Cascade.ALL] })
@@ -66,7 +70,7 @@ export class Item extends BaseEntity {
 		category: Category,
 		description?: string,
 		user?: User,
-    office? : Office,
+		office?: Office,
 		food?: Food,
 		office_equipment?: OfficeEquipment,
 		tehnical_equipment?: TehnicalEquipment
@@ -79,18 +83,18 @@ export class Item extends BaseEntity {
 		this.category = category;
 		if (description) this.description = description;
 		if (user) this.user = user;
-    if (office) this.office = office;
+		if (office) this.office = office;
 		if (food) this.food = food;
 		if (office_equipment) this.office_equipment = office_equipment;
 		if (tehnical_equipment) this.tehnical_equipment = tehnical_equipment;
 	}
 
-  @Property({ persist: false })
-  get assignedTo(): string | null {
-    if (this.user) return this.user.fullName;
-    if (this.office) return this.office.name;
-    return null
-  }
+	@Property({ persist: false })
+	get assignedTo(): string | null {
+		if (this.user) return this.user.fullName;
+		if (this.office) return this.office.name;
+		return null;
+	}
 }
 
 export default Item;

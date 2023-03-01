@@ -1,6 +1,7 @@
-import Item from './Item';
 import { Entity, OneToOne, Property } from '@mikro-orm/core';
+
 import BaseEntity from './BaseEntity';
+import Item from './Item';
 
 @Entity()
 export class Food extends BaseEntity {
@@ -28,7 +29,7 @@ export class Food extends BaseEntity {
 		vegan: boolean,
 		brand: string,
 		expire_date: string,
-    item: Item
+		item: Item
 	) {
 		super();
 		this.gluten_free = gluten_free;
@@ -36,7 +37,7 @@ export class Food extends BaseEntity {
 		this.vegan = vegan;
 		this.brand = brand;
 		this.expire_date = expire_date;
-    this.item = item
+		this.item = item;
 	}
 }
 

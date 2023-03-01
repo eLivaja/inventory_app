@@ -1,10 +1,10 @@
-import Item from './Item';
 import { Entity, OneToOne, Property } from '@mikro-orm/core';
+
 import BaseEntity from './BaseEntity';
+import Item from './Item';
 
 @Entity()
 export class OfficeEquipment extends BaseEntity {
-
 	@Property()
 	description: string;
 
@@ -14,7 +14,7 @@ export class OfficeEquipment extends BaseEntity {
 	constructor(description: string, item: Item) {
 		super();
 		this.description = description;
-    this.item = item
+		this.item = item;
 	}
 }
 

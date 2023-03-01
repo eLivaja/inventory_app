@@ -12,11 +12,11 @@ import data from './data/items';
 export class ItemSeeder extends Seeder {
 	async run(em: EntityManager): Promise<void> {
 		const users = await em.getRepository(User).findAll();
-    const offices = await em.getRepository(Office).findAll();
+		const offices = await em.getRepository(Office).findAll();
 
 		data.map(async item => {
 			const user = users.find(it => it.id === item.user);
-      const office = offices.find(it => it.id === item.office);
+			const office = offices.find(it => it.id === item.office);
 			const record = new Item(
 				item.name,
 				item.status,
@@ -24,7 +24,7 @@ export class ItemSeeder extends Seeder {
 				item.category,
 				item.description,
 				user,
-        office
+				office
 			);
 
 			if (item.tehnicalEquipment) {
