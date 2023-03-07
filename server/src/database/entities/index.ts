@@ -7,6 +7,7 @@ import Office from './Office';
 import OfficeEquipment from './OfficeEquipment';
 import Overtime from './Overtime';
 import TechnicalEquipment from './TechnicalEquipment';
+import Timesheet from './Timesheet';
 import User from './User';
 
 export default [
@@ -19,5 +20,6 @@ export default [
 	OfficeEquipment,
 	Overtime,
 	TechnicalEquipment,
+	Timesheet,
 	User,
 ];

@@ -11,6 +11,7 @@ import * as bcrypt from 'bcryptjs';
 import AuditLog from './AuditLog';
 import BaseEntity from './BaseEntity';
 import Item from './Item';
+import { Timesheet } from './Timesheet';
 
 @Entity()
 class User extends BaseEntity {
@@ -32,6 +33,11 @@ class User extends BaseEntity {
 
 	@OneToMany(() => AuditLog, log => log.user, { cascade: [Cascade.ALL] })
 	logs = new Collection<AuditLog>(this);
+
+	@OneToMany(() => Timesheet, timesheet => timesheet.user, {
+		cascade: [Cascade.ALL],
+	})
+	timesheet_logs = new Collection<Timesheet>(this);
 
 	constructor(
 		firstName: string,
