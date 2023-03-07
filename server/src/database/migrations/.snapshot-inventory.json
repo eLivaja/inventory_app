@@ -187,6 +187,107 @@
 					"length": 6,
 					"mappedType": "datetime"
 				},
+				"start": {
+					"name": "start",
+					"type": "varchar(255)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"mappedType": "string"
+				},
+				"end": {
+					"name": "end",
+					"type": "varchar(255)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"mappedType": "string"
+				},
+				"comment": {
+					"name": "comment",
+					"type": "varchar(255)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": true,
+					"mappedType": "string"
+				},
+				"user_id": {
+					"name": "user_id",
+					"type": "int",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"mappedType": "integer"
+				}
+			},
+			"name": "timesheet",
+			"schema": "public",
+			"indexes": [
+				{
+					"keyName": "timesheet_pkey",
+					"columnNames": ["id"],
+					"composite": false,
+					"primary": true,
+					"unique": true
+				}
+			],
+			"checks": [],
+			"foreignKeys": {
+				"timesheet_user_id_foreign": {
+					"constraintName": "timesheet_user_id_foreign",
+					"columnNames": ["user_id"],
+					"localTableName": "public.timesheet",
+					"referencedColumnNames": ["id"],
+					"referencedTableName": "public.user",
+					"updateRule": "cascade"
+				}
+			}
+		},
+		{
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"unsigned": true,
+					"autoincrement": true,
+					"primary": true,
+					"nullable": false,
+					"mappedType": "integer"
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamptz(0)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"length": 6,
+					"mappedType": "datetime"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamptz(0)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"length": 6,
+					"mappedType": "datetime"
+				},
+				"date": {
+					"name": "date",
+					"type": "timestamptz(0)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"length": 6,
+					"mappedType": "datetime"
+				},
 				"number_of_hours": {
 					"name": "number_of_hours",
 					"type": "int",
