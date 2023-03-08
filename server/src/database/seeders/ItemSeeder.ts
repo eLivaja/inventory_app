@@ -22,8 +22,8 @@ export class ItemSeeder extends Seeder {
 				item.status,
 				new Date(item.purchaseDate),
 				item.category,
-        item.hasError,
-        item.description,
+				item.hasError,
+				item.description,
 				user,
 				office
 			);

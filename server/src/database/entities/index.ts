@@ -17,7 +17,7 @@ export default [
 	DaysOff,
 	Food,
 	Item,
-  ItemOrder,
+	ItemOrder,
 	Office,
 	OfficeEquipment,
 	Overtime,

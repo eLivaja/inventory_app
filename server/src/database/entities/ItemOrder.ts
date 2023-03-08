@@ -1,39 +1,39 @@
-import { Entity, ManyToOne, ManyToMany, Property } from '@mikro-orm/core';
+import { Entity, ManyToMany, ManyToOne, Property } from '@mikro-orm/core';
 
 import BaseEntity from './BaseEntity';
-import User from './User';
 import { Item } from './Item';
+import User from './User';
 
 @Entity()
 export class ItemOrder extends BaseEntity {
-  @Property()
+	@Property()
 	name: string;
 
 	@Property({ nullable: true })
 	description: string;
 
-  @Property()
+	@Property()
 	quantity: number;
 
 	@ManyToOne({ entity: () => User })
 	user: User;
 
-  @ManyToMany({ entity: () => Item, nullable: true })
+	@ManyToMany({ entity: () => Item, nullable: true })
 	item?: Item;
 
 	constructor(
 		name: string,
-    quantity: number,
+		quantity: number,
 		user: User,
 		description?: string,
-    item?: Item
+		item?: Item
 	) {
 		super();
 		this.name = name;
 		this.quantity = quantity;
 		this.user = user;
 		if (description) this.description = description;
-    if (item) this.item = item;
+		if (item) this.item = item;
 	}
 }
 

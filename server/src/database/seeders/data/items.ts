@@ -17,8 +17,8 @@ interface Item {
 	description?: string;
 	purchaseDate: string;
 	category: Category;
-  hasError: boolean;
-  errorDescription: string;
+	hasError: boolean;
+	errorDescription: string;
 	user?: number;
 	office?: number | undefined;
 	food?: Food;
@@ -32,7 +32,7 @@ export default [
 		status: 'not available',
 		purchaseDate: '01.04.2020',
 		category: 'tehnical_equipment',
-    hasError: false,
+		hasError: false,
 		user: 1,
 		tehnicalEquipment: {
 			description: 'Tablet',
@@ -45,7 +45,7 @@ export default [
 		status: 'not available',
 		purchaseDate: '01.10.2018',
 		category: 'tehnical_equipment',
-    hasError: true,
+		hasError: true,
 		user: 2,
 		tehnicalEquipment: {
 			description: 'Scanner',
@@ -59,7 +59,7 @@ export default [
 		description: 'small scissors',
 		purchaseDate: '01.08.2017',
 		category: 'office_equipment',
-    hasError: true,
+		hasError: true,
 		officeEquipment: {
 			description: 'Small Scissors',
 		},
@@ -70,7 +70,7 @@ export default [
 		description: 'Black Chocholate',
 		purchaseDate: '01.02.2023',
 		category: 'food',
-    hasError: false,
+		hasError: false,
 		food: {
 			vegan: false,
 			vegetarian: false,
@@ -85,7 +85,7 @@ export default [
 		description: 'Green Smith small apples',
 		purchaseDate: '05.02.2023',
 		category: 'food',
-    hasError: false,
+		hasError: false,
 		food: {
 			vegan: true,
 			vegetarian: true,
@@ -100,7 +100,7 @@ export default [
 		description: 'White A4',
 		purchaseDate: '01.12.2022',
 		category: 'office_equipment',
-    hasError: false,
+		hasError: false,
 		office: 1,
 		officeEquipment: {
 			description: 'no need for extra description?',
