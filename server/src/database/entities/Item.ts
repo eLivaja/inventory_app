@@ -42,6 +42,12 @@ export class Item extends BaseEntity {
 	@Enum()
 	category: Category;
 
+	@Property({ default: false })
+	has_error: boolean;
+
+	@Property({ nullable: true })
+	error_description?: string;
+
 	@ManyToOne({ entity: () => User, nullable: true })
 	user?: User;
 
@@ -68,12 +74,14 @@ export class Item extends BaseEntity {
 		status: string,
 		purchase_date: Date,
 		category: Category,
+		has_error: boolean,
 		description?: string,
 		user?: User,
 		office?: Office,
 		food?: Food,
 		office_equipment?: OfficeEquipment,
-		tehnical_equipment?: TehnicalEquipment
+		tehnical_equipment?: TehnicalEquipment,
+		error_description?: string
 	) {
 		super();
 		this.name = name;
@@ -81,12 +89,14 @@ export class Item extends BaseEntity {
 
 		this.purchase_date = purchase_date;
 		this.category = category;
+		this.has_error = has_error;
 		if (description) this.description = description;
 		if (user) this.user = user;
 		if (office) this.office = office;
 		if (food) this.food = food;
 		if (office_equipment) this.office_equipment = office_equipment;
 		if (tehnical_equipment) this.tehnical_equipment = tehnical_equipment;
+		if (error_description) this.error_description = error_description;
 	}
 
 	@Property({ persist: false })

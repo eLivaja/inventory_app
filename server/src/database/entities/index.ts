@@ -3,6 +3,7 @@ import BaseEntity from './BaseEntity';
 import DaysOff from './DaysOff';
 import Food from './Food';
 import Item from './Item';
+import ItemOrder from './ItemOrder';
 import Office from './Office';
 import OfficeEquipment from './OfficeEquipment';
 import Overtime from './Overtime';
@@ -16,6 +17,7 @@ export default [
 	DaysOff,
 	Food,
 	Item,
+	ItemOrder,
 	Office,
 	OfficeEquipment,
 	Overtime,

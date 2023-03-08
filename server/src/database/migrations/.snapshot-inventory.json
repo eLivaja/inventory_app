@@ -370,6 +370,97 @@
 					"nullable": false,
 					"mappedType": "string"
 				},
+				"description": {
+					"name": "description",
+					"type": "varchar(255)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": true,
+					"mappedType": "string"
+				},
+				"quantity": {
+					"name": "quantity",
+					"type": "int",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"mappedType": "integer"
+				},
+				"user_id": {
+					"name": "user_id",
+					"type": "int",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"mappedType": "integer"
+				}
+			},
+			"name": "item_order",
+			"schema": "public",
+			"indexes": [
+				{
+					"keyName": "item_order_pkey",
+					"columnNames": ["id"],
+					"composite": false,
+					"primary": true,
+					"unique": true
+				}
+			],
+			"checks": [],
+			"foreignKeys": {
+				"item_order_user_id_foreign": {
+					"constraintName": "item_order_user_id_foreign",
+					"columnNames": ["user_id"],
+					"localTableName": "public.item_order",
+					"referencedColumnNames": ["id"],
+					"referencedTableName": "public.user",
+					"updateRule": "cascade"
+				}
+			}
+		},
+		{
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"unsigned": true,
+					"autoincrement": true,
+					"primary": true,
+					"nullable": false,
+					"mappedType": "integer"
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamptz(0)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"length": 6,
+					"mappedType": "datetime"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamptz(0)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"length": 6,
+					"mappedType": "datetime"
+				},
+				"name": {
+					"name": "name",
+					"type": "varchar(255)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"mappedType": "string"
+				},
 				"status": {
 					"name": "status",
 					"type": "varchar(255)",
@@ -407,6 +498,25 @@
 					"nullable": false,
 					"enumItems": [],
 					"mappedType": "enum"
+				},
+				"has_error": {
+					"name": "has_error",
+					"type": "boolean",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"default": "false",
+					"mappedType": "boolean"
+				},
+				"error_description": {
+					"name": "error_description",
+					"type": "varchar(255)",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": true,
+					"mappedType": "string"
 				},
 				"user_id": {
 					"name": "user_id",
@@ -634,6 +744,60 @@
 					"localTableName": "public.office_equipment",
 					"referencedColumnNames": ["id"],
 					"referencedTableName": "public.item",
+					"updateRule": "cascade"
+				}
+			}
+		},
+		{
+			"columns": {
+				"item_order_id": {
+					"name": "item_order_id",
+					"type": "int",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"mappedType": "integer"
+				},
+				"item_id": {
+					"name": "item_id",
+					"type": "int",
+					"unsigned": false,
+					"autoincrement": false,
+					"primary": false,
+					"nullable": false,
+					"mappedType": "integer"
+				}
+			},
+			"name": "item_order_item",
+			"schema": "public",
+			"indexes": [
+				{
+					"keyName": "item_order_item_pkey",
+					"columnNames": ["item_order_id", "item_id"],
+					"composite": true,
+					"primary": true,
+					"unique": true
+				}
+			],
+			"checks": [],
+			"foreignKeys": {
+				"item_order_item_item_order_id_foreign": {
+					"constraintName": "item_order_item_item_order_id_foreign",
+					"columnNames": ["item_order_id"],
+					"localTableName": "public.item_order_item",
+					"referencedColumnNames": ["id"],
+					"referencedTableName": "public.item_order",
+					"deleteRule": "cascade",
+					"updateRule": "cascade"
+				},
+				"item_order_item_item_id_foreign": {
+					"constraintName": "item_order_item_item_id_foreign",
+					"columnNames": ["item_id"],
+					"localTableName": "public.item_order_item",
+					"referencedColumnNames": ["id"],
+					"referencedTableName": "public.item",
+					"deleteRule": "cascade",
 					"updateRule": "cascade"
 				}
 			}
